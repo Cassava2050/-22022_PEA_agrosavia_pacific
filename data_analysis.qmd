@@ -110,8 +110,8 @@ trial_tidy_all$trial_name %>% unique()
 # trial_tidy_all <- 
 #   trial_tidy_all %>% filter(!trial_name %in% c("201784BCPRC_cpal", "201895BCPRC_cpal"))
 
- pop = "CQ"
-#pop = "BC"
+#pop = "CQ"
+pop = "BC"
 #pop = "both"
 ```
 
@@ -392,10 +392,11 @@ for (var in variables) {
 }
 
 # The pattern of names in master_data
-master_names <- paste0("HSD_geno_", variables, "_CQ")
+master_names <- paste0("HSD_geno_", variables, "_", pop)
 
 # Initialize an empty list for storing the joined data frames
 
+joined_data <- list()
 
 for (i in seq_along(variables)) {
   # Construct the name of the data frame in master_data
@@ -495,7 +496,9 @@ variables_ideal <- variables[!variables %in% c("lodging1_3",
                                                "root_number_non_commercial", 
                                                "height_wt_leaf",
                                                "root_type1_5",
-                                               "root_length1_3")]
+                                               "root_length1_3", 
+                                               "root_skin_color1_3", 
+                                               "root_shape1_6")]
 
 ammi_results <- list()
 
